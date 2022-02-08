@@ -19,7 +19,13 @@ return the head of the **first five** columns of the `tibble`.
 ```{r, message=FALSE}
 metadata <- readr::read_csv("data/proj_metadata.csv")
 knitr::kable(head(metadata)[c(1:5)])
-```
+read_expression_table(metadata)
+
+
+``` 
+
+
+
 
 ## 2. Reading in Expression Data
 
@@ -45,9 +51,24 @@ programming paradigm, apply this function to each column name in the metadata
 Google possible ways to manipulate strings in `R`. One possible way is to use
 regular expressions and the `stringr` library. 
 ```{r}
+#period_to_underscore <- function(str) {
+  #y<-str_replace(str, "\\.","_")
+  #return(y)
+#}
 colnames(metadata) <-
   lapply(colnames(metadata), period_to_underscore)
-colnames(metadata)
+print(colnames(metadata))
+# varnames<-colnames(metadata)
+#for (i in varnames){
+ 
+}
+#for (i in colnames(metadata)){
+  #print(i)
+ # gsub(".","_",i)
+  #print(i)
+#}
+
+
 ```
 
 ## 4. Renaming and Selecting Columns of interest
